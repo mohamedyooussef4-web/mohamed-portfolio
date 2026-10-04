@@ -1,0 +1,158 @@
+{
+  "branding": {
+    "monogram": "MA",
+    "name": "Mohamed Ali",
+    "title": "Filmmaker & Director of Photography",
+    "footerCopy": "Filmmaker & Director of Photography © 2026"
+  },
+  "hero": {
+    "badge": "Cinematic Filmmaking & Professional Photography",
+    "headlineStart": "Transforming Vision into",
+    "headlineGradient": "Cinematic Frames",
+    "headlineEnd": "That Live Forever",
+    "subtitle": "Director of photography, commercial filmmaker, and visual artist specializing in brand commercials and dramatic fashion imagery. Obsessed with natural light, deliberate camera motion, and compelling visual narratives.",
+    "ctaPortfolioText": "Explore Works",
+    "ctaContactText": "Get in Touch"
+  },
+  "about": {
+    "badge": "About The Artist",
+    "title": "Visual Passion Turned into Unforgettable Stories",
+    "paragraph1": "Hello, I'm Mohamed Ali, a filmmaker, director of photography, and visual artist. I specialize in directing and filming commercials, high-end fashion campaigns, and editorial sessions with unmatched aesthetic fidelity.",
+    "paragraph2": "I believe that every frame has a voice and every composition tells a story. From subtle natural lighting to dynamic camera movements, my focus is always on capturing genuine emotions and cinematic elegance that resonate long after the screen dims.",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
+    "imageTag": "Director of Photography",
+    "availability": "Open for Bookings & Collaborations"
+  },
+  "contact": {
+    "badge": "Direct Channels",
+    "title": "Let's Create Together",
+    "subtitle": "Whether you're planning a commercial production, private photoshoot, or brand campaign, connect directly via any channel below:",
+    "phone": "+20 100 123 4567",
+    "phoneRaw": "+201001234567",
+    "whatsapp": "201001234567",
+    "email": "contact@mohamedalifilms.com",
+    "location": "Cairo, Egypt (Available Worldwide)",
+    "floatingWhatsapp": true,
+    "floatingWhatsappTooltip": "Chat with Mohamed Ali",
+    "socials": {
+      "instagram": "https://instagram.com/mohamedali.films",
+      "youtube": "https://youtube.com/@mohamedalifilms",
+      "vimeo": "https://vimeo.com/mohamedalifilms",
+      "behance": "https://behance.net/mohamedalifilms"
+    },
+    "bookingFormTitle": "Book a Shoot or Project",
+    "bookingFormSubtitle": "Fill out your details below and Mohamed Ali will get back to you promptly."
+  },
+  "categories": [
+    {
+      "id": "commercial",
+      "name": "Commercial"
+    },
+    {
+      "id": "fashion",
+      "name": "Fashion"
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-1",
+      "title": "Desert Dune 4x4 - Commercial Film",
+      "type": "video",
+      "category": "commercial",
+      "coverUrl": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80",
+      "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "client": "Sahara Motors",
+      "date": "2024-05-15",
+      "gearUsed": "Sony FX6 + 24-70mm GM + DJI Mavic 3 Cine",
+      "description": "A high-octane commercial spotlighting off-road performance through aggressive dunes, paired with golden hour aerials and high-contrast color grading.",
+      "featured": true
+    },
+    {
+      "id": "proj-2",
+      "title": "Neon Shadows - Editorial Fashion",
+      "type": "photo",
+      "category": "fashion",
+      "coverUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80",
+      "client": "Vogue Creative",
+      "date": "2024-06-20",
+      "gearUsed": "Sony FX3 + 85mm f/1.4 GM",
+      "description": "Dramatic cinematic editorial utilizing complementary neon rim lights and deep shadows to accentuate fashion presence.",
+      "featured": true
+    },
+    {
+      "id": "proj-3",
+      "title": "The Palace - Luxury Brand Film",
+      "type": "video",
+      "category": "commercial",
+      "coverUrl": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+      "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4",
+      "client": "Royal Estates",
+      "date": "2024-04-10",
+      "gearUsed": "Sony FX3 + 50mm f/1.2 GM + RS3 Pro",
+      "description": "An intimate, emotive brand film capturing architectural elegance within a historic palace, with gentle anamorphic flare emulation.",
+      "featured": true
+    },
+    {
+      "id": "proj-4",
+      "title": "Serenity at Dawn - Travel Commercial",
+      "type": "photo",
+      "category": "commercial",
+      "coverUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+      "client": "Wanderlust Magazine",
+      "date": "2024-03-05",
+      "gearUsed": "Sony A7R IV + 16-35mm f/2.8 GM",
+      "description": "Wide panoramic long-exposure capturing crystal morning reflections and subtle gradient skies over calm waters.",
+      "featured": false
+    },
+    {
+      "id": "proj-5",
+      "title": "Haute Cuisine - Macro Commercial",
+      "type": "video",
+      "category": "commercial",
+      "coverUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80",
+      "videoUrl": "https://www.youtube.com/watch?v=9No-FiEInLA",
+      "client": "Le Chef Gourmet",
+      "date": "2024-07-01",
+      "gearUsed": "Sony FX6 + 90mm Macro f/2.8",
+      "description": "Fast-paced culinary teaser focusing on ultra-macro sizzles, steam, and sauce pours with rhythmic acoustic sound design.",
+      "featured": false
+    },
+    {
+      "id": "proj-6",
+      "title": "Urban Heritage - Street Fashion",
+      "type": "photo",
+      "category": "fashion",
+      "coverUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=80",
+      "client": "Urban Style Apparel",
+      "date": "2024-07-18",
+      "gearUsed": "Sony FX3 + 35mm f/1.4 GM",
+      "description": "An urban fashion editorial blending classic historical architecture with contemporary streetwear silhouettes.",
+      "featured": true
+    },
+    {
+      "id": "proj-7",
+      "title": "Azure Coast - Hospitality Film",
+      "type": "video",
+      "category": "commercial",
+      "coverUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+      "videoUrl": "https://www.youtube.com/watch?v=ysz5S6PUM-U",
+      "client": "Blue Wave Resorts",
+      "date": "2024-08-02",
+      "gearUsed": "DJI Mavic 3 Pro Cine 5.1K Apple ProRes",
+      "description": "Sweeping cinematic perspectives over turquoise shorelines and architectural marvels during sunset.",
+      "featured": false
+    },
+    {
+      "id": "proj-8",
+      "title": "Wisdom & Time - Monochrome Fashion",
+      "type": "photo",
+      "category": "fashion",
+      "coverUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80",
+      "client": "Human Stories Project",
+      "date": "2024-02-12",
+      "gearUsed": "Sony FX3 + 85mm f/1.4 GM",
+      "description": "High-contrast black-and-white editorial portraiture emphasizing the depth of time, expression, and gaze.",
+      "featured": false
+    }
+  ]
+}

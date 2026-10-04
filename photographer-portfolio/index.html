@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohamed Ali | Filmmaker & Director of Photography</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: '#e5a93c',
+              goldLight: '#f5bc54',
+              dark: '#0a0a0c',
+              card: '#121217'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#0a0a0c] text-[#f3f4f6] min-h-screen selection:bg-amber-500 selection:text-black bg-grid-pattern relative">
+
+  <!-- Ambient Glow Effects -->
+  <div class="hero-glow"></div>
+
+  <!-- Header / Navigation Bar (Clean Public Presentation) -->
+  <header class="fixed top-0 left-0 right-0 z-40 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-300 p-0.5 shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform flex-shrink-0">
+          <div class="w-full h-full bg-[#0a0a0c] rounded-[10px] flex items-center justify-center font-black text-amber-400 text-sm tracking-tighter brand-monogram">
+            MA
+          </div>
+        </div>
+        <div>
+          <span class="font-black text-xl tracking-tight text-white block group-hover:text-amber-400 transition-colors brand-name">Mohamed Ali</span>
+          <span class="text-[11px] text-gray-400 font-medium tracking-wider block brand-title">Filmmaker & Photographer</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-300">
+        <a href="#hero" class="hover:text-amber-400 transition-colors">Home</a>
+        <a href="#portfolio" class="hover:text-amber-400 transition-colors">Portfolio</a>
+        <a href="#about" class="hover:text-amber-400 transition-colors">About</a>
+        <a href="#contact" class="hover:text-amber-400 transition-colors flex items-center gap-2">
+          <span>Contact</span>
+          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+        </a>
+      </nav>
+
+      <!-- Primary Action CTA -->
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black text-xs sm:text-sm font-extrabold transition-all shadow-lg shadow-amber-500/20 flex items-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Book a Shoot</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative pt-36 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-semibold mb-6 animate-fade-in shadow-lg shadow-amber-500/10">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+        <span id="hero-badge">Cinematic Filmmaking & Professional Photography</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white mb-6 leading-tight max-w-4xl mx-auto">
+        <span id="hero-headline-start">Transforming Vision into</span> <span id="hero-headline-gradient" class="gold-gradient-text">Cinematic Frames</span> <span id="hero-headline-end">That Live Forever</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p id="hero-subtitle" class="text-base sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+        Director of photography, commercial filmmaker, and visual artist specializing in brand commercials and dramatic fashion imagery.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-4">
+        <a id="hero-cta-portfolio" href="#portfolio" class="px-8 py-4 rounded-2xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-base transition-all duration-300 flex items-center gap-3 shadow-xl shadow-amber-500/25 hover:scale-105">
+          <i data-lucide="play-circle" class="w-5 h-5"></i>
+          <span>Explore Works</span>
+        </a>
+
+        <a id="hero-cta-contact" href="#contact" class="px-8 py-4 rounded-2xl glass-panel hover:bg-white/10 text-white font-bold text-base transition-all duration-300 flex items-center gap-3 border border-white/15 hover:border-amber-500/50">
+          <i data-lucide="message-circle" class="w-5 h-5 text-green-400"></i>
+          <span>Get in Touch</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== PORTFOLIO SECTION ==================== -->
+  <section id="portfolio" class="py-24 relative border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <span class="text-amber-400 text-sm font-bold tracking-wider uppercase mb-2 block">Selected Visual Works</span>
+          <h2 class="text-3xl sm:text-5xl font-black text-white">Cinematic Stories & Frames</h2>
+        </div>
+      </div>
+
+      <!-- Categories Filter Tabs (Rendered dynamically from CMS) -->
+      <div id="portfolio-categories" class="flex items-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-none">
+        <!-- Injected dynamically by app.js -->
+      </div>
+
+      <!-- Portfolio Grid Items -->
+      <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT SECTION ==================== -->
+  <section id="about" class="py-24 relative border-t border-white/5 bg-[#070709]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Image / Visual -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative rounded-3xl overflow-hidden glass-panel border border-white/10 p-2 shadow-2xl">
+            <img id="about-image" src="" alt="Mohamed Ali" class="w-full h-[450px] object-cover rounded-2xl" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-2xl flex flex-col justify-end p-6">
+              <span id="about-image-tag" class="text-amber-400 font-bold text-xs uppercase tracking-wider">Director of Photography</span>
+              <h3 class="text-2xl font-black text-white brand-name">Mohamed Ali</h3>
+              <p class="text-xs text-gray-300 brand-title">Cinematographer & Photographer</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="lg:col-span-7 space-y-6">
+          <span id="about-badge" class="text-amber-400 text-sm font-bold tracking-wider uppercase block">About The Artist</span>
+          <h2 id="about-title" class="text-3xl sm:text-4xl font-black text-white leading-tight">
+            Visual Passion Turned into Unforgettable Stories
+          </h2>
+          <p id="about-p1" class="text-sm sm:text-base text-gray-300 leading-relaxed">
+            Hello, I'm Mohamed Ali, a filmmaker, director of photography, and visual artist. I specialize in directing and filming commercials, high-end fashion campaigns, and editorial sessions with unmatched aesthetic fidelity.
+          </p>
+          <p id="about-p2" class="text-sm sm:text-base text-gray-400 leading-relaxed">
+            I believe that every frame has a voice and every composition tells a story. From subtle natural lighting to dynamic camera movements, my focus is always on capturing genuine emotions and cinematic elegance that resonate long after the screen dims.
+          </p>
+
+          <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+            <div class="flex items-center gap-3 text-gray-300">
+              <div class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+              </div>
+              <span id="about-location">Cairo, Egypt (Available Worldwide)</span>
+            </div>
+
+            <div class="flex items-center gap-3 text-gray-300">
+              <div class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+              </div>
+              <a id="about-email" href="mailto:contact@mohamedalifilms.com" class="hover:text-amber-400 transition-colors">contact@mohamedalifilms.com</a>
+            </div>
+
+            <div class="flex items-center gap-3 text-gray-300">
+              <div class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+              </div>
+              <a id="about-phone" href="tel:+201001234567" class="hover:text-amber-400 transition-colors">+20 100 123 4567</a>
+            </div>
+
+            <div class="flex items-center gap-3 text-gray-300">
+              <div class="w-9 h-9 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+              </div>
+              <span id="about-availability">Open for Bookings & Collaborations</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT & CONNECT HUB ==================== -->
+  <section id="contact" class="py-24 relative border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span id="contact-badge" class="text-amber-400 text-sm font-bold tracking-wider uppercase mb-2 block">Direct Channels</span>
+        <h2 id="contact-title" class="text-3xl sm:text-5xl font-black text-white mb-4">Let's Create Together</h2>
+        <p id="contact-subtitle" class="text-gray-400 text-sm sm:text-base">Whether you're planning a commercial production, private photoshoot, or brand campaign, connect directly via any channel below:</p>
+      </div>
+
+      <!-- Quick Contact Channels Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        
+        <!-- WhatsApp Card -->
+        <a id="contact-card-whatsapp" href="https://wa.me/201001234567" target="_blank" class="whatsapp-link glass-panel p-6 rounded-3xl border border-white/10 hover:border-green-500/50 hover:bg-green-500/5 transition-all group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-green-500/10 text-green-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <i data-lucide="message-circle" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[11px] text-green-400 font-bold px-2.5 py-1 rounded-full bg-green-500/10">Instant Reply</span>
+          </div>
+          <div>
+            <h4 class="font-extrabold text-white text-lg mb-1 group-hover:text-green-400 transition-colors">WhatsApp Chat</h4>
+            <p class="text-xs text-gray-400 mb-3">Direct conversation for availability, rates, and fast inquiries.</p>
+            <span class="text-xs font-bold text-green-400 flex items-center gap-1">
+              <span>Chat on WhatsApp</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Phone Call Card -->
+        <a id="contact-card-phone" href="tel:+201001234567" class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-amber-500/50 hover:bg-amber-500/5 transition-all group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <i data-lucide="phone-call" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[11px] text-amber-400 font-bold px-2.5 py-1 rounded-full bg-amber-500/10">Direct Call</span>
+          </div>
+          <div>
+            <h4 class="font-extrabold text-white text-lg mb-1 group-hover:text-amber-400 transition-colors">Phone Call</h4>
+            <p class="text-xs text-gray-400 mb-3">For urgent production requirements and direct briefings.</p>
+            <span class="text-xs font-bold text-amber-400 flex items-center gap-1">
+              <span id="contact-phone-label">+20 100 123 4567</span>
+              <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Email Card -->
+        <a id="contact-card-email" href="mailto:contact@mohamedalifilms.com" class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-blue-500/50 hover:bg-blue-500/5 transition-all group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <i data-lucide="mail" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[11px] text-blue-400 font-bold px-2.5 py-1 rounded-full bg-blue-500/10">Official RFPs</span>
+          </div>
+          <div>
+            <h4 class="font-extrabold text-white text-lg mb-1 group-hover:text-blue-400 transition-colors">Email</h4>
+            <p class="text-xs text-gray-400 mb-3">For project briefs, commercial proposals, and formal contracts.</p>
+            <span class="text-xs font-bold text-blue-400 flex items-center gap-1">
+              <span>Send Email</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Social Channels Hub -->
+        <div class="glass-panel p-6 rounded-3xl border border-white/10 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4">
+              <i data-lucide="share-2" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-extrabold text-white text-lg mb-1">Social Channels</h4>
+            <p class="text-xs text-gray-400 mb-4">Follow behind-the-scenes footage and new reel releases.</p>
+          </div>
+          
+          <div class="grid grid-cols-4 gap-2 pt-2 border-t border-white/10">
+            <a id="social-instagram" href="https://instagram.com" target="_blank" title="Instagram" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-gradient-to-tr hover:from-amber-500 hover:to-pink-600 hover:text-white text-gray-300 flex items-center justify-center transition-all">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+            <a id="social-youtube" href="https://youtube.com" target="_blank" title="YouTube" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-red-600 hover:text-white text-gray-300 flex items-center justify-center transition-all">
+              <i data-lucide="youtube" class="w-4 h-4"></i>
+            </a>
+            <a id="social-vimeo" href="https://vimeo.com" target="_blank" title="Vimeo" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-blue-500 hover:text-white text-gray-300 flex items-center justify-center transition-all">
+              <i data-lucide="video" class="w-4 h-4"></i>
+            </a>
+            <a id="social-behance" href="https://behance.net" target="_blank" title="Behance" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-blue-600 hover:text-white text-gray-300 flex items-center justify-center transition-all">
+              <i data-lucide="globe" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Booking Form Card -->
+      <div class="max-w-3xl mx-auto glass-panel p-8 sm:p-12 rounded-3xl border border-white/10 shadow-2xl relative">
+        <div class="text-center mb-8">
+          <h3 id="booking-form-title" class="text-2xl font-black text-white mb-2">Book a Shoot or Project</h3>
+          <p id="booking-form-subtitle" class="text-xs sm:text-sm text-gray-400">Fill out your details below and Mohamed Ali will get back to you promptly.</p>
+        </div>
+
+        <form id="booking-form" class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-bold text-gray-300 mb-2">Full Name *</label>
+              <input type="text" id="book-name" required placeholder="e.g. John Doe" class="w-full px-4 py-3.5 rounded-xl text-sm" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-gray-300 mb-2">Phone / WhatsApp Number *</label>
+              <input type="tel" id="book-phone" required placeholder="e.g. +20 100 123 4567" class="w-full px-4 py-3.5 rounded-xl text-sm" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-bold text-gray-300 mb-2">Project / Service Type *</label>
+              <select id="book-service" class="w-full px-4 py-3.5 rounded-xl text-sm">
+                <option value="Commercial Video & Brand Ad">Commercial Video & Brand Ad</option>
+                <option value="Fashion & Editorial Shoot">Fashion & Editorial Shoot</option>
+                <option value="Creative Visual Campaign">Creative Visual Campaign</option>
+                <option value="Custom Production">Custom Production</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-gray-300 mb-2">Target Date</label>
+              <input type="date" id="book-date" class="w-full px-4 py-3.5 rounded-xl text-sm" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-300 mb-2">Project Notes & Vision</label>
+            <textarea id="book-notes" rows="3" placeholder="Tell us about your project concept, location, timeline, or requirements..." class="w-full px-4 py-3 rounded-xl text-sm"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-4 rounded-2xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-base transition-all duration-300 flex items-center justify-center gap-3 shadow-xl shadow-amber-500/25 hover:scale-[1.01]">
+            <i data-lucide="send" class="w-5 h-5"></i>
+            <span>Send Booking Request via WhatsApp</span>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 border-t border-white/5 bg-[#070709] text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-300 p-0.5 flex-shrink-0">
+          <div class="w-full h-full bg-[#0a0a0c] rounded-[10px] flex items-center justify-center font-bold text-amber-400 text-xs brand-monogram">
+            MA
+          </div>
+        </div>
+        <div class="text-left">
+          <span class="font-bold text-white text-sm block brand-name">Mohamed Ali</span>
+          <span id="footer-copy" class="text-[11px] text-gray-500">Filmmaker & Director of Photography © 2026</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6 text-xs text-gray-400 font-medium">
+        <a href="#hero" class="hover:text-white transition-colors">Home</a>
+        <a href="#portfolio" class="hover:text-white transition-colors">Portfolio</a>
+        <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING QUICK CONTACT BAR ==================== -->
+  <div id="floating-whatsapp-container" class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
+    <!-- WhatsApp Floating Trigger -->
+    <a id="floating-whatsapp-btn" href="https://wa.me/201001234567" target="_blank" class="whatsapp-link group flex items-center gap-3 px-4 py-3 rounded-full bg-green-600 hover:bg-green-500 text-white font-bold text-xs shadow-2xl shadow-green-600/40 transition-all hover:scale-105 border border-green-400/30">
+      <span id="floating-whatsapp-text" class="hidden group-hover:inline transition-all">Chat with Mohamed Ali</span>
+      <i data-lucide="message-circle" class="w-5 h-5"></i>
+    </a>
+  </div>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- 1. Video Player Modal (Supports YouTube, Vimeo, and Uploaded MP4/MOV) -->
+  <div id="video-modal" class="fixed inset-0 z-50 modal-backdrop hidden flex items-center justify-center p-4 sm:p-6">
+    <div class="relative w-full max-w-4xl glass-panel rounded-3xl border border-white/20 overflow-hidden shadow-2xl animate-fade-in flex flex-col max-h-[92vh]">
+      
+      <!-- Modal Header -->
+      <div class="p-4 sm:p-6 border-b border-white/10 flex items-center justify-between bg-black/50">
+        <div>
+          <h3 id="video-modal-title" class="text-lg sm:text-xl font-black text-white">Video Title</h3>
+          <div class="flex items-center gap-3 text-xs text-gray-400 mt-1">
+            <span id="video-modal-client" class="text-amber-400 font-medium"></span>
+            <span id="video-modal-gear"></span>
+          </div>
+        </div>
+        <button onclick="closeVideoModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Player Container -->
+      <div class="aspect-cinema w-full bg-black relative flex items-center justify-center">
+        <div id="video-player-container" class="w-full h-full"></div>
+      </div>
+
+      <!-- Video Description & CTA -->
+      <div class="p-4 sm:p-6 bg-black/70 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <p id="video-modal-desc" class="text-xs sm:text-sm text-gray-300 leading-relaxed"></p>
+        <a href="#contact" onclick="closeVideoModal()" class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs flex items-center gap-2 whitespace-nowrap shadow-lg shadow-amber-500/20">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          <span>Inquire About Similar Project</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. Photo Lightbox Modal -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 modal-backdrop hidden flex items-center justify-center p-4 sm:p-6">
+    <div class="relative w-full max-w-5xl glass-panel rounded-3xl border border-white/20 overflow-hidden shadow-2xl animate-fade-in flex flex-col lg:flex-row max-h-[90vh]">
+      
+      <!-- Close Button -->
+      <button onclick="closeLightbox()" class="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center backdrop-blur-md transition-colors border border-white/10">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Image Area with Next/Prev navigation -->
+      <div class="lg:w-2/3 bg-black flex items-center justify-center relative min-h-[320px] lg:min-h-[550px] p-2">
+        <img id="lightbox-image" src="" alt="" class="max-h-[80vh] w-auto max-w-full object-contain rounded-xl" />
+        
+        <!-- Controls -->
+        <button onclick="prevLightbox()" title="Previous" class="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center backdrop-blur-md transition-all border border-white/10">
+          <i data-lucide="chevron-left" class="w-6 h-6"></i>
+        </button>
+        <button onclick="nextLightbox()" title="Next" class="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center backdrop-blur-md transition-all border border-white/10">
+          <i data-lucide="chevron-right" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <!-- Info Area -->
+      <div class="lg:w-1/3 p-6 bg-[#101015] flex flex-col justify-between overflow-y-auto">
+        <div>
+          <span class="badge-photo text-[11px] px-3 py-1 rounded-full font-bold inline-block mb-3">Photography</span>
+          <h3 id="lightbox-title" class="text-xl font-bold text-white mb-3">Photo Title</h3>
+          <p id="lightbox-desc" class="text-xs text-gray-300 leading-relaxed mb-6"></p>
+
+          <div class="space-y-3 border-t border-white/10 pt-4 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-gray-400">Client:</span>
+              <span id="lightbox-client" class="text-amber-400 font-bold"></span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-gray-400">Camera & Lens:</span>
+              <span id="lightbox-gear" class="text-white font-medium"></span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-gray-400">Date:</span>
+              <span id="lightbox-date" class="text-gray-300"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-6 border-t border-white/10 mt-6">
+          <a href="#contact" onclick="closeLightbox()" class="w-full py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs flex items-center justify-center gap-2 transition-all">
+            <i data-lucide="camera" class="w-4 h-4"></i>
+            <span>Book a Shoot</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/db.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

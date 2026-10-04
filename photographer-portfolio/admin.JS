@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMS Studio & Admin Panel | Mohamed Ali Portfolio</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: '#e5a93c',
+              goldLight: '#f5bc54',
+              dark: '#0a0a0c',
+              card: '#121217'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#0a0a0c] text-[#f3f4f6] min-h-screen selection:bg-amber-500 selection:text-black">
+
+  <!-- Toast Notification Container -->
+  <div id="admin-toast" class="fixed top-6 right-6 z-50 transform translate-y-[-150%] transition-transform duration-300 flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-[#16161d] border border-amber-500/50 shadow-2xl text-white text-xs font-bold pointer-events-none">
+    <div class="w-7 h-7 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0">
+      <i data-lucide="check" class="w-4 h-4"></i>
+    </div>
+    <span id="admin-toast-text">Settings updated successfully!</span>
+  </div>
+
+  <div class="flex flex-col md:flex-row min-h-screen">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="w-full md:w-72 bg-[#0d0d11] border-b md:border-b-0 md:border-r border-white/10 p-6 flex flex-col justify-between flex-shrink-0">
+      <div>
+        <!-- Brand / Monogram -->
+        <div class="flex items-center gap-3 mb-8 pb-6 border-b border-white/10">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-300 p-0.5 flex-shrink-0 shadow-lg shadow-amber-500/20">
+            <div id="sidebar-monogram" class="w-full h-full bg-[#0a0a0c] rounded-[10px] flex items-center justify-center font-black text-amber-400 text-xs">
+              MA
+            </div>
+          </div>
+          <div>
+            <h1 id="sidebar-brand-name" class="font-black text-base text-white">Mohamed Ali</h1>
+            <p class="text-[11px] text-amber-400 font-semibold">CMS Control Studio</p>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="space-y-1.5">
+          <button data-tab="projects" class="admin-tab-btn active w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold bg-amber-500 text-black transition-all">
+            <i data-lucide="grid" class="w-4 h-4"></i>
+            <span>Portfolio Works</span>
+          </button>
+
+          <button data-tab="hero" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            <span>Hero & Branding</span>
+          </button>
+
+          <button data-tab="about" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all">
+            <i data-lucide="user" class="w-4 h-4"></i>
+            <span>About Section</span>
+          </button>
+
+          <button data-tab="contact" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all">
+            <i data-lucide="phone-call" class="w-4 h-4"></i>
+            <span>Contact & Socials</span>
+          </button>
+
+          <button data-tab="categories" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all">
+            <i data-lucide="tag" class="w-4 h-4"></i>
+            <span>Categories</span>
+          </button>
+
+          <button data-tab="backup" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all">
+            <i data-lucide="database" class="w-4 h-4"></i>
+            <span>Backup & Sync</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Back to Live Website Button -->
+      <div class="pt-6 border-t border-white/10 mt-6">
+        <a href="index.html" target="_blank" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-white text-xs font-bold transition-all border border-white/10">
+          <i data-lucide="external-link" class="w-4 h-4 text-amber-400"></i>
+          <span>View Live Portfolio</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 p-6 sm:p-10 overflow-y-auto max-w-6xl">
+      
+      <!-- Top Stats Bar -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
+        <div class="glass-panel p-6 rounded-2xl border border-white/10 flex items-center justify-between">
+          <div>
+            <span class="text-xs text-gray-400 block mb-1">Total Works</span>
+            <span id="stat-total-projects" class="text-3xl font-black text-amber-400">0</span>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
+            <i data-lucide="layout-grid" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl border border-white/10 flex items-center justify-between">
+          <div>
+            <span class="text-xs text-gray-400 block mb-1">Films & Videos</span>
+            <span id="stat-total-videos" class="text-3xl font-black text-amber-400">0</span>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
+            <i data-lucide="film" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl border border-white/10 flex items-center justify-between">
+          <div>
+            <span class="text-xs text-gray-400 block mb-1">Photography Items</span>
+            <span id="stat-total-photos" class="text-3xl font-black text-blue-400">0</span>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
+            <i data-lucide="camera" class="w-6 h-6"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== TAB 1: PORTFOLIO WORKS ==================== -->
+      <section id="tab-projects" class="admin-tab-content space-y-6">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-black text-white">Portfolio Works Management</h2>
+            <p class="text-xs text-gray-400 mt-1">Upload new works (videos & photos), edit existing items, or remove old projects</p>
+          </div>
+          <button onclick="openAddProjectModal()" class="px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-amber-500/20 transition-all">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span>Add New Work</span>
+          </button>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="glass-panel p-4 rounded-2xl border border-white/10 flex flex-col sm:flex-row items-center gap-4">
+          <div class="relative flex-1 w-full">
+            <i data-lucide="search" class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <input type="text" id="admin-project-search" placeholder="Search by title, client, or keywords..." class="w-full pl-11 pr-4 py-2.5 rounded-xl text-xs sm:text-sm" />
+          </div>
+
+          <div class="w-full sm:w-48">
+            <select id="admin-project-filter-type" class="w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm">
+              <option value="all">All Types</option>
+              <option value="photo">Photos Only</option>
+              <option value="video">Videos Only</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Projects List -->
+        <div id="admin-projects-list" class="space-y-3">
+          <!-- Injected dynamically by JS -->
+        </div>
+
+      </section>
+
+      <!-- ==================== TAB 2: HERO & BRANDING ==================== -->
+      <section id="tab-hero" class="admin-tab-content hidden space-y-6">
+        
+        <div>
+          <h2 class="text-2xl font-black text-white">Hero & Global Branding</h2>
+          <p class="text-xs text-gray-400 mt-1">Control your brand name, title, monogram, hero headline, subtitle, and CTA buttons</p>
+        </div>
+
+        <form id="admin-hero-form" class="glass-panel p-6 sm:p-8 rounded-2xl border border-white/10 space-y-6">
+          
+          <div class="border-b border-white/10 pb-4">
+            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider mb-4">Identity & Brand Settings</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div>
+                <label class="block text-xs font-bold text-gray-300 mb-2">Monogram Logo (e.g. MA)</label>
+                <input type="text" id="brand-monogram-input" maxlength="4" required class="w-full px-4 py-3 rounded-xl text-sm" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-300 mb-2">Artist / Studio Name</label>
+                <input type="text" id="brand-name-input" required class="w-full px-4 py-3 rounded-xl text-sm" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-300 mb-2">Professional Title / Role</label>
+                <input type="text" id="brand-title-input" required class="w-full px-4 py-3 rounded-xl text-sm" />
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <label class="block text-xs font-bold text-gray-300 mb-2">Footer Copyright Text</label>
+              <input type="text" id="brand-footer-input" class="w-full px-4 py-3 rounded-xl text-sm" />
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider mb-4">Hero Section Text</h3>
+            
+            <div class="space-y-4">
+              <div>
+                <label class="block text-xs font-bold text-gray-300 mb-2">Pill Badge Text</label>
+                <input type="text" id="hero-badge-input" class="w-full px-4 py-3 rounded-xl text-sm" />
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-gray-300 mb-2">Headline (Start)</label>
+                  <input type="text" id="hero-headline-start-input" class="w-full px-4 py-3 rounded-xl text-sm" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-amber-400 mb-2">Headline (Golden Gradient)</label>
+                  <input type="text" id="hero-headline-gradient-input" class="w-full px-4 py-3 rounded-xl text-sm" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-gray-300 mb-2">Headline (End)</label>
+                  <input type="text" id="hero-headline-end-input" class="w-full px-4 py-3 rounded-xl text-sm" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-gray-300 mb-2">Hero Subtitle</label>
+                <textarea id="hero-subtitle-input" rows="3" class="w-full px-4 py-3 rounded-xl text-sm leading-relaxed"></textarea>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-gray-300 mb-2">Primary CTA Button Label</label>
+                  <input type="text" id="hero-cta-portfolio-input" class="w-full px-4 py-3 rounded-xl text-sm" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-gray-300 mb-2">Secondary CTA Button Label</label>
+                  <input type="text" id="hero-cta-contact-input" class="w-full px-4 py-3 rounded-xl text-sm" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-white/10 flex justify-end">
+            <button type="submit" class="px-8 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-sm shadow-lg shadow-amber-500/20 transition-all flex items-center gap-2">
+              <i data-lucide="save" class="w-4 h-4"></i>
+              <span>Save Hero & Branding</span>
+            </button>
+          </div>
+
+        </form>
+
+      </section>
+
+      <!-- ==================== TAB 3: ABOUT SECTION ==================== -->
+      <section id="tab-about" class="admin-tab-content hidden space-y-6">
+        
+        <div>
+          <h2 class="text-2xl font-black text-white">About Section Controls</h2>
+          <p class="text-xs text-gray-400 mt-1">Manage your biographical statements, profile image upload, and current booking availability</p>
+        </div>
+
+        <form id="admin-about-form" class="glass-panel p-6 sm:p-8 rounded-2xl border border-white/10 space-y-6">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold text-gray-300 mb-2">Section Badge</label>
+              <input type="text" id="about-badge-input" class="w-full px-4 py-3 rounded-xl text-sm" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-gray-300 mb-2">Section Headline</label>
+              <input type="text" id="about-title-input" class="w-full px-4 py-3 rounded-xl text-sm" />
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-gray-300 mb-2">Bio Paragraph 1</label>
+              <textarea id="about-p1-input" rows="3" class="w-full px-4 py-3 rounded-xl text-sm leading-relaxed"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-gray-300 mb-2">Bio Paragraph 2</label>
+              <textarea id="about-p2-input" rows="3" class="w-full px-4 py-3 rounded-xl text-sm leading-relaxed"></textarea>
+            </div>
+          </div>
+
+          <!-- Artist Portrait Image Upload -->
+          <div class="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-4">
+            <span class="block text-xs font-bold text-amber-400 uppercase tracking-wider">Artist Profile Photo</span>
+            
+            <div class="flex flex-col sm:flex-row items-center gap-6">
+              <img id="about-img-preview" src="" class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover border border-white/15 bg-black flex-shrink-0" />
+              
+              <div class="flex-1 w-full space-y-3">
+                <div>
+                  <label class="block text-[11px] text-gray-400 mb-1">Direct Image URL</label>
+                  <input type="url" id="about-image-url-input" placeholder="https://..." class="w-full px-4 py-2.5 rounded-xl text-xs" />
+                </div>
+                
+                <div>
+                  <label class="block text-[11px] text-gray-400 mb-1">Or Upload New Photo from Computer</label>
+                  <input type="file" id="about-image-file-input" accept="image/*" class="w-full text-xs text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-amber-500 file:text-black hover:file:bg-amber-400 cursor-pointer" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold text-gray-300 mb-2">Photo Tag Overlay (e.g. Director of Photography)</label>
+              <input type="text" id="about-tag-input" class="w-full px-4 py-3 rounded-xl text-sm" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-gray-300 mb-2">Availability Status</label>
+              <input type="text" id="about-avail-input" class="w-full px-4 py-3 rounded-xl text-sm" />
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-white/10 flex justify-end">
+            <button type="submit" class="px-8 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-sm shadow-lg shadow-amber-500/20 transition-all flex items-center gap-2">
+              <i data-lucide="save" class="w-4 h-4"></i>
+              <span>Save About Section</span>
+            </button>
+          </div>
+
+        </form>
+
+      </section>
+
+      <!-- ==================== TAB 4: CONTACT & SOCIALS ==================== -->
+      <section id="tab-contact" class="admin-tab-content hidden space-y-6">
+        
+        <div>
+          <h2 class="text-2xl font-black text-white">Contact Channels & Social Media</h2>
+          <p class="text-xs text-gray-400 mt-1">Configure your phone numbers, WhatsApp, official email, social media links, and booking form settings</p>
+        </div>
+
+        <form id="admin-contact-form" class="glass-panel p-6 sm:p-8 rounded-2xl border border-white/10 space-y-6">
+          
+          <div class="border-b border-white/10 pb-4">
+            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider mb-4">Contact Section Header</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-bold text-gray-300 mb-2">Section Badge</label>
+                <input type="text" id="contact-badge-input" class="w-full px-4 py-3 rounded-xl text-sm" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-300 mb-2">Section Headline</label>
+                <input type="text" id="contact-title-input" class="w-full px-4 py-3 rounded-xl text-sm" />
+              </div>
+            </div>
+            <div class="mt-4">
+              <label class="block text-xs font-bold text-gray-300 mb-2">Section Subtitle</label>
+              <textarea id="contact-subtitle-input" rows="2" class="w-full px-4 py-3 rounded-xl text-sm"></textarea>
+            </div>
+          </div>
+
+          <div class="border-b border-white/10 pb-4">
+            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider mb-4">Direct Communication Channels</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div>
+                <label class="block text-xs font-bold text-gray-300 mb-1">WhatsApp Number (Digits Only) *</label>
+                <p class="text-[11px] text-gray-500 mb-2">e.g. 201001234567 (with country code)</p>
+                <input type="text" id="contact-whatsapp-input" required placeholder="201001234567" class="w-full px-4 py-3 rounded-xl text-sm" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-gray-300 mb-1">Display Phone Number *</label>
+                <p class="text-[11px] text-gray-500 mb-2">e.g. +20 100 123 4567</p>
+                <input type="text" id="contact-phone-input" required placeholder="+20 100 123 4567" class="w-full px-4 py-3 rounded-xl text-sm" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-gray-300 mb-1">Official Email Address *</label>
+                <p class="text-[11px] text-gray-500 mb-2">For inquiries and client RFPs</p>
+                <input type="email" id="contact-email-input" required placeholder="contact@mohamedalifilms.com" class="w-full px-4 py-3 rounded-xl text-sm" />
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <label class="block text-xs font-bold text-gray-300 mb-2">Location / Base of Operations</label>
+              <input type="text" id="contact-location-input" placeholder="Cairo, Egypt (Available Worldwide)" class="w-full px-4 py-3 rounded-xl text-sm" />
+            </div>
+          </div>
+
+          <div class="border-b border-white/10 pb-4">
+            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider mb-4">Social Media Profile Links</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[11px] text-gray-400 mb-1">Instagram URL</label>
+                <input type="url" id="contact-ig-input" placeholder="https://instagram.com/..." class="w-full px-3 py-2.5 rounded-xl text-sm" />
+              </div>
+              <div>
+                <label class="block text-[11px] text-gray-400 mb-1">YouTube URL</label>
+                <input type="url" id="contact-yt-input" placeholder="https://youtube.com/@..." class="w-full px-3 py-2.5 rounded-xl text-sm" />
+              </div>
+              <div>
+                <label class="block text-[11px] text-gray-400 mb-1">Vimeo URL</label>
+                <input type="url" id="contact-vm-input" placeholder="https://vimeo.com/..." class="w-full px-3 py-2.5 rounded-xl text-sm" />
+              </div>
+              <div>
+                <label class="block text-[11px] text-gray-400 mb-1">Behance URL</label>
+                <input type="url" id="contact-be-input" placeholder="https://behance.net/..." class="w-full px-3 py-2.5 rounded-xl text-sm" />
+              </div>
+            </div>
+          </div>
+
+          <div class="border-b border-white/10 pb-4">
+            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider mb-4">Booking Form & Floating WhatsApp</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-4">
+              <div>
+                <label class="block text-xs font-bold text-gray-300 mb-2">Booking Form Title</label>
+                <input type="text" id="contact-form-title-input" class="w-full px-4 py-3 rounded-xl text-sm" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-300 mb-2">Booking Form Subtitle</label>
+                <input type="text" id="contact-form-subtitle-input" class="w-full px-4 py-3 rounded-xl text-sm" />
+              </div>
+            </div>
+
+            <div class="flex items-center gap-6 p-4 rounded-xl bg-white/5 border border-white/10">
+              <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-white">
+                <input type="checkbox" id="contact-floating-wa-enable" class="w-4 h-4 rounded text-amber-500 focus:ring-0" />
+                <span>Show Floating WhatsApp Button</span>
+              </label>
+
+              <div class="flex-1">
+                <input type="text" id="contact-floating-wa-tooltip" placeholder="Chat with Mohamed Ali" class="w-full px-3 py-2 rounded-xl text-xs" />
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-white/10 flex justify-end">
+            <button type="submit" class="px-8 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-sm shadow-lg shadow-amber-500/20 transition-all flex items-center gap-2">
+              <i data-lucide="save" class="w-4 h-4"></i>
+              <span>Save Contact & Socials</span>
+            </button>
+          </div>
+
+        </form>
+
+      </section>
+
+      <!-- ==================== TAB 5: CATEGORIES ==================== -->
+      <section id="tab-categories" class="admin-tab-content hidden space-y-6">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-black text-white">Portfolio Categories</h2>
+            <p class="text-xs text-gray-400 mt-1">Manage the filter categories for Mohamed Ali's works (Commercial, Fashion, etc.)</p>
+          </div>
+        </div>
+
+        <!-- Add Category Form -->
+        <div class="glass-panel p-6 rounded-2xl border border-white/10">
+          <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider mb-4">Add New Category</h3>
+          <form id="admin-add-category-form" class="flex flex-col sm:flex-row items-center gap-4">
+            <div class="flex-1 w-full">
+              <input type="text" id="cat-name-input" required placeholder="Category Name (e.g. Music Videos, Documentaries)" class="w-full px-4 py-3 rounded-xl text-sm" />
+            </div>
+            <button type="submit" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all">
+              <i data-lucide="plus" class="w-4 h-4"></i>
+              <span>Add Category</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Categories List -->
+        <div class="glass-panel p-6 rounded-2xl border border-white/10">
+          <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Active Categories</h3>
+          <div id="admin-categories-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <!-- Injected dynamically -->
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ==================== TAB 6: BACKUP & SYNC ==================== -->
+      <section id="tab-backup" class="admin-tab-content hidden space-y-6">
+        
+        <div>
+          <h2 class="text-2xl font-black text-white">Backup & System Sync</h2>
+          <p class="text-xs text-gray-400 mt-1">Export your complete portfolio data as a JSON file, restore from backup, or force sync to disk</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div class="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center mb-4">
+                <i data-lucide="download" class="w-6 h-6"></i>
+              </div>
+              <h4 class="font-bold text-white text-base mb-2">Export Backup (JSON)</h4>
+              <p class="text-xs text-gray-400 mb-6">Download a complete snapshot of all works, profile details, hero texts, and contact channels.</p>
+            </div>
+            <button id="btn-export-backup" class="w-full py-3 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>Download JSON Backup</span>
+            </button>
+          </div>
+
+          <div class="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-4">
+                <i data-lucide="upload" class="w-6 h-6"></i>
+              </div>
+              <h4 class="font-bold text-white text-base mb-2">Import Backup</h4>
+              <p class="text-xs text-gray-400 mb-6">Restore your portfolio state and content from a previously saved JSON file.</p>
+            </div>
+            <label class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <i data-lucide="upload" class="w-4 h-4"></i>
+              <span>Select JSON File</span>
+              <input type="file" id="input-import-backup" accept=".json" class="hidden" />
+            </label>
+          </div>
+
+          <div class="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center mb-4">
+                <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+              </div>
+              <h4 class="font-bold text-white text-base mb-2">Reset to Defaults</h4>
+              <p class="text-xs text-gray-400 mb-6">Re-initialize portfolio with pristine sample projects and standard configuration.</p>
+            </div>
+            <button id="btn-reset-data" class="w-full py-3 rounded-xl bg-red-500/20 hover:bg-red-600 text-red-400 hover:text-white font-bold text-xs transition-all border border-red-500/30 flex items-center justify-center gap-2">
+              <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+              <span>Reset Defaults</span>
+            </button>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- ==================== ADD / EDIT WORK MODAL ==================== -->
+  <div id="project-modal" class="fixed inset-0 z-50 modal-backdrop hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="relative w-full max-w-2xl glass-panel rounded-3xl border border-white/20 p-6 sm:p-8 shadow-2xl animate-fade-in my-8 max-h-[92vh] overflow-y-auto">
+      
+      <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+        <h3 id="project-modal-title" class="text-xl font-bold text-white">Add New Work</h3>
+        <button onclick="closeProjectModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <form id="admin-project-form" class="space-y-4">
+        
+        <div>
+          <label class="block text-xs font-bold text-gray-300 mb-1.5">Project / Work Title *</label>
+          <input type="text" id="form-title" required class="w-full px-4 py-3 rounded-xl text-sm" placeholder="e.g. Desert Dune 4x4 - Commercial Film" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-gray-300 mb-1.5">Work Type *</label>
+            <select id="form-type" class="w-full px-4 py-3 rounded-xl text-sm">
+              <option value="photo">Photography (Photo)</option>
+              <option value="video">Cinematography (Video)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-300 mb-1.5">Category *</label>
+            <select id="form-category" class="w-full px-4 py-3 rounded-xl text-sm">
+              <!-- Dynamically populated from CMS categories -->
+            </select>
+          </div>
+        </div>
+
+        <!-- Video Source Selection -->
+        <div id="form-video-group" class="hidden p-4 rounded-2xl bg-white/5 border border-amber-500/20 space-y-3">
+          <span class="block text-xs font-bold text-amber-400">Video Source</span>
+          
+          <div class="flex items-center gap-4 text-xs">
+            <label class="flex items-center gap-1.5 cursor-pointer text-gray-300">
+              <input type="radio" name="admin-video-source" value="link" checked onchange="toggleAdminVideoSource('link')" />
+              <span>External Link (YouTube / Vimeo / MP4 URL)</span>
+            </label>
+            <label class="flex items-center gap-1.5 cursor-pointer text-gray-300">
+              <input type="radio" name="admin-video-source" value="upload" onchange="toggleAdminVideoSource('upload')" />
+              <span>Upload Video File (MP4, MOV)</span>
+            </label>
+          </div>
+
+          <!-- Video URL Field -->
+          <div id="admin-video-link-container">
+            <input type="url" id="form-video-url" placeholder="https://www.youtube.com/watch?v=..." class="w-full px-4 py-2.5 rounded-xl text-xs" />
+          </div>
+
+          <!-- Video File Upload Field -->
+          <div id="admin-video-file-container" class="hidden">
+            <input type="file" id="form-video-file" accept="video/mp4,video/webm,video/ogg,video/quicktime" class="w-full text-xs text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-amber-500 file:text-black hover:file:bg-amber-400 cursor-pointer" />
+            <p class="text-[11px] text-gray-500 mt-1">Supports MP4, MOV, WebM</p>
+          </div>
+        </div>
+
+        <!-- Cover Image -->
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-3">
+          <label class="block text-xs font-bold text-gray-300">Cover Image / Photo *</label>
+          
+          <div class="flex items-center gap-4 text-xs">
+            <label class="flex items-center gap-1.5 cursor-pointer text-gray-300">
+              <input type="radio" name="admin-image-source" value="upload" checked onchange="toggleAdminImageSource('upload')" />
+              <span>Upload Image File</span>
+            </label>
+            <label class="flex items-center gap-1.5 cursor-pointer text-gray-300">
+              <input type="radio" name="admin-image-source" value="link" onchange="toggleAdminImageSource('link')" />
+              <span>Direct Image URL</span>
+            </label>
+          </div>
+
+          <!-- File Upload -->
+          <div id="admin-image-file-container">
+            <input type="file" id="form-image-file" accept="image/*" class="w-full text-xs text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-amber-500 file:text-black hover:file:bg-amber-400 cursor-pointer" />
+          </div>
+
+          <!-- Direct Link -->
+          <div id="admin-image-link-container" class="hidden">
+            <input type="url" id="form-image-url" placeholder="https://example.com/photo.jpg" class="w-full px-4 py-2.5 rounded-xl text-xs" />
+          </div>
+
+          <!-- Live Image Preview -->
+          <img id="form-image-preview" src="" class="hidden w-full h-36 object-cover rounded-xl mt-2 border border-white/10" />
+        </div>
+
+        <!-- Upload Progress Indicator -->
+        <div id="admin-upload-progress" class="hidden space-y-1.5">
+          <div class="flex justify-between text-xs text-gray-400">
+            <span>Uploading file to local storage...</span>
+            <span id="admin-progress-percent">0%</span>
+          </div>
+          <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+            <div id="admin-progress-bar" class="h-full bg-amber-500 transition-all duration-200" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-gray-300 mb-1.5">Client / Brand</label>
+            <input type="text" id="form-client" placeholder="e.g. Sahara Motors / Vogue" class="w-full px-4 py-3 rounded-xl text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-300 mb-1.5">Date</label>
+            <input type="date" id="form-date" class="w-full px-4 py-3 rounded-xl text-sm" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-gray-300 mb-1.5">Gear Used</label>
+          <input type="text" id="form-gear" placeholder="e.g. Sony FX6 + 24-70mm GM II" class="w-full px-4 py-3 rounded-xl text-sm" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-gray-300 mb-1.5">Description</label>
+          <textarea id="form-desc" rows="3" placeholder="Project details and artistic execution..." class="w-full px-4 py-2.5 rounded-xl text-xs"></textarea>
+        </div>
+
+        <div class="pt-4 flex items-center justify-end gap-3 border-t border-white/10">
+          <button type="button" onclick="closeProjectModal()" class="px-5 py-3 rounded-xl text-xs font-bold text-gray-400 hover:text-white transition-colors">Cancel</button>
+          <button type="submit" id="admin-submit-btn" class="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs transition-all shadow-lg shadow-amber-500/20 flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4"></i>
+            <span>Save Work</span>
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/db.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
